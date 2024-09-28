@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <windows.h>
 int main()
 {
     int mixer;
@@ -16,11 +17,11 @@ int main()
         for (i = 5; i > 0; i--)
     {
         printf("%d\n", i);
-        sleep(1);  // Wait for 1 second
+        Sleep(1000);  // Wait for 1 second
     }
         
        
-       Sleep(5);
+     
        printf("Chopping is done");
     }
     else if (mixer==2 && timee==5)
@@ -29,10 +30,10 @@ int main()
            for (i = 5; i > 0; i--)
     {
         printf("%d\n", i);
-        sleep(1);  // Wait for 1 second
+        Sleep(1000);  // Wait for 1 second
     }
         
-       Sleep(5);
+        
           printf("Blending is done ");
     }
      else if (mixer==1 && timee==10)
@@ -41,9 +42,9 @@ int main()
           for (i = 10; i > 0; i--)
     {
         printf("%d\n", i);
-        sleep(1);  // Wait for 1 second
+         Sleep(1000);  // Wait for 1 second
     }
-       Sleep(10);
+        
          printf("Chopping is done ");
     }
      else if (mixer==2 && timee==10)
@@ -52,9 +53,9 @@ int main()
            for (i = 10; i > 0; i--)
     {
         printf("%d\n", i);
-        sleep(1);  // Wait for 1 second
+         Sleep(1000);  // Wait for 1 second
     }
-       Sleep(10);
+       
           printf("Blending is done ");
     }
     else{
