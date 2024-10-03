@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <Windows.h>
+
+int main()
+{
+    int math, phy, eng, avg, comp;
+     printf("hello there!\nThis is a program to check which stream you can get in MMCOE\nLet's begin \n");
+
+     printf("please enter your marks out of 100 in maths\n");
+    scanf("%d", &math);
+    if (math > 100 || math < 0)
+    {
+        printf("yo dont enter imaginary marks i am a calculator not a maths proffesor\n");
+        return 0;
+    }
+    Sleep(1000);
+    printf("please enter your marks out of 100 in physics\n");
+    scanf("%d", &phy);
+    if (phy > 100 || phy < 0)
+    {
+        printf("yo dont enter imaginary marks i am a calculator not a maths proffesor\n");
+        return 0;
+    }
+    Sleep(1000);
+
+    printf("please enter your marks out of 100 in computer science\n");
+    scanf("%d", &comp);
+    if (comp > 100 || comp < 0)
+    {
+        printf("yo dont enter imaginary marks i am a calculator not a maths proffesor\n");
+        return 0;
+    }
+    Sleep(1000);
+
+    printf("please enter your marks out of 100 in english\n");
+    scanf("%d", &eng);
+    if (eng > 100 || eng < 0)
+    {
+        printf("yo dont enter imaginary marks i am a calculator not a maths proffesor\n");
+        return 0;
+    }
+    Sleep(1000);
+
+    printf("please wait till I calculate your average till then you can have a look at the grading criteria\n");
+    printf("The grading criteria is as follows:- \n");
+    printf("Please wait while I calculate your average. In the meantime, have a look at the grading criteria:\n");
+    printf("The grading criteria is as follows:\n");
+    printf("A+ is for >90 marks And you can get Comp Eng \n");
+    printf("A is for >80 and <=90 marks And you can get AI&DS\n");
+    printf("B+ is for >70 and <=80 marks And you can get Electrical Eng\n");
+    printf("B is for >60 and <=70 marks And you can get Information Technology\n");
+    printf("C+ is for >50 and <=60 marks And you can get Mechanical Eng\n");
+    printf("C is for >40 and <=50 marks And you can get Civil Eng\n");
+    printf("F is for anything below 40 marks And you can not get into MMCOE\n");
+    Sleep(5000);
+
+
+    avg = (math + phy + eng + comp)/4;
+    
+    if (avg >= 90)
+    {
+        printf("Smart guy huh, your avg = %d \n", avg);
+        printf("and your grade is A+ \nyou can get Comp Eng\n");
+    } 
+
+    else if (avg >= 80 && avg < 90)
+    {
+        printf("your avg = %d \n", avg);
+        printf("and your grade is A \nand you can get AI&DS\n");
+    } 
+
+    else if (avg >= 70 && avg < 80)
+    {
+        printf("your avg = %d \n", avg);
+        printf("and your grade is B+ \nand you can get Electrical Eng \n");
+    } 
+
+    else if (avg >= 60 && avg < 70)
+    {
+        printf("your avg = %d \n", avg);
+        printf("and your grade is B \n you can get Information Technology\n");
+    } 
+    
+    else if (avg >= 50 && avg < 60)
+    {
+        printf("your avg = %d \n", avg);
+        printf("and your grade is C+ \n you can get Mechanical Eng\n");
+    } 
+   
+    else if (avg >= 40 && avg < 50)
+    {
+        printf("your avg = %d \n", avg);
+        printf("and your grade is C \n you can get Civil Eng");
+    } 
+    
+    else 
+    {
+        printf("i think maybe you should consider studying once in a while\n your avg = %d \n", avg);
+        printf("you sadly failed the examination \n you cant get in MMCOE");
+    }
+    Sleep(1000);
+    printf("Best of luck for your next examination and if you would like to calculate your average again next time you know where to find me.");
+    return 0;
+
+
+}
