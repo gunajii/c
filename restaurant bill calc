@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+#define MAX_TOPPINGS 5
+#define MAX_MEALS 3
+#define MAX_TOPPING_OPTIONS 5
+
+float calculateTotalCost(float baseCost, float toppings[], int index, int numToppings) {
+    if (index >= numToppings) {
+        return baseCost;
+    }
+    return toppings[index] + calculateTotalCost(baseCost, toppings, index + 1, numToppings);
+}
+
+int main() {
+    float baseCost, totalCost;
+    int mealChoice, numToppings, i;
+
+    char *meals[MAX_MEALS] = {"Pizza", "Burger", "Pasta"};
+    float mealPrices[MAX_MEALS] = {10.50, 8.00, 9.00};
+
+    char *toppingOptions[MAX_TOPPING_OPTIONS] = {"Cheese", "Mushrooms", "Olives", "Peppers", "Onions"};
+    float toppingPrices[MAX_TOPPING_OPTIONS] = {1.50, 2.00, 1.00, 1.25, 1.00};
+
+    printf("Select a base meal:\n");
+    for (int j = 0; j < MAX_MEALS; j++) {
+        printf("%d. %s - $%.2f\n", j + 1, meals[j], mealPrices[j]);
+    }
+
+    printf("Enter the number corresponding to your choice: ");
+    scanf("%d", &mealChoice);
+
+    if (mealChoice < 1 || mealChoice > MAX_MEALS) {
+        printf("Invalid choice. Exiting.\n");
+        return 1;
+    }
+
+    baseCost = mealPrices[mealChoice - 1];
+    printf("\nYou chose: %s\n", meals[mealChoice - 1]);
+
+    printf("Enter the number of toppings you want to add (max %d): ", MAX_TOPPINGS);
+    scanf("%d", &numToppings);
+
+    if (numToppings > MAX_TOPPINGS) {
+        printf("Sorry, you can only add up to %d toppings.\n", MAX_TOPPINGS);
+        return 1;
+    }
+
+    float selectedToppings[numToppings];
+
+    printf("\nSelect the toppings from the following options (enter topping numbers):\n");
+    for (int j = 0; j < MAX_TOPPING_OPTIONS; j++) {
+        printf("%d. %s - $%.2f\n", j + 1, toppingOptions[j], toppingPrices[j]);
+    }
+
+    for (i = 0; i < numToppings; i++) {
+        int toppingChoice;
+        printf("Enter the topping number for topping %d: ", i + 1);
+        scanf("%d", &toppingChoice);
+
+        if (toppingChoice < 1 || toppingChoice > MAX_TOPPING_OPTIONS) {
+            printf("Invalid topping choice. Exiting.\n");
+            return 1;
+        }
+
+        selectedToppings[i] = toppingPrices[toppingChoice - 1];
+    }
+
+    totalCost = calculateTotalCost(baseCost, selectedToppings, 0, numToppings);
+
+    printf("\nTotal cost of your meal: $%.2f\n", totalCost);
+
+    return 0;
+}
